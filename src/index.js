@@ -4,18 +4,15 @@ import ReactDOM from 'react-dom';
 
 import './index.less';
 
-class UserInfo extends React.Component{
+class TodoList extends React.Component{
   render() {
-    let dom = <div></div>;
-    if (this.props.type == 'admin') {
-      dom = <p>You are admin.</p>
-    } else if (this.props.type == 'vip') {
-      dom = <p>You are vip.</p>
-    } else {
-      dom = <p>Hello React.</p>
-    }
-
-    return dom;
+    return <ul>
+      {
+        this.props.list.map((item) => (
+          <li>{item}</li>
+        ))
+      }
+      </ul>;
   }
 }
-ReactDOM.render(<UserInfo type="admin" />, document.querySelector('#app'));
+ReactDOM.render(<TodoList list={['Eat', 'Sleep', 'Drink']} />, document.querySelector('#app'));
