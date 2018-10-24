@@ -5,14 +5,15 @@ import ReactDOM from 'react-dom';
 import './index.less';
 
 class TodoList extends React.Component{
-  render() {
-    return <ul>
-      {
-        this.props.list.map((item) => (
-          <li>{item}</li>
-        ))
-      }
-      </ul>;
-  }
+  constructor(props) {
+    super(props);
 }
-ReactDOM.render(<TodoList list={['Eat', 'Sleep', 'Drink']} />, document.querySelector('#app'));
+
+render() {
+    // 在这里编写JSX循环渲染代码，按题目要求返回
+    return <div>{
+        window.animals.map((item,i)=>{return item.name + '吃' + window.food[item.type]})
+    }</div>
+}
+}
+ReactDOM.render(<TodoList list={['Eat', 'Sleep', 'Drink', 'Dance']} />, document.querySelector('#app'));
