@@ -6,10 +6,10 @@ import './index.less';
 
 class Hello extends React.Component{
   render() { 
-    return <div>
-      <h1>Hello React</h1>
-      <p className="text">测试</p>
-    </div>
+    const name = 'react'
+    return <div>Wellcome! {name||'user'}!{
+      !name && <p>You need log in</p>
+    }</div>
   }
 }
-ReactDOM.render(<Hello />, document.querySelector('#app'));
+ReactDOM.render(<Hello name="D1n910" />, document.querySelector('#app'));
