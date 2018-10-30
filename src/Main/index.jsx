@@ -9,7 +9,12 @@ export default class Main extends React.Component{
 
   static getDerivedStateFromProps(props, state){
     console.log('getDerivedStateFromProps');
-    return null;
+    const hour = props.hour;
+    const nextClock = new Date(state.clock); //用new是为了不污染原来的state
+    nextClock.setHours(hour);
+    return {
+      clock: nextClock
+    };
   }
 
   componentDidMount(){
