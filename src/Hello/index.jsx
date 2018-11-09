@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'React';
 
 const Hello = (BasicComponent) => {
   return class extends React.Component{

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'React'
 import Hello from '../Hello'
 
 class Main extends React.Component{
