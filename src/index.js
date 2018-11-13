@@ -9,11 +9,17 @@ import Main from './Main/index'
 class TodoList extends React.Component{
   constructor(props) {
     super(props);
+    this.inputRef = React.createRef()
+}
+
+componentDidMount() {
+  this.inputRef.current.focus()
 }
 
 render() {
     // 在这里编写JSX循环渲染代码，按题目要求返回
     return <div>
+      <input ref={this.inputRef}/>
       <Main hour="16"/>
       {
         window.animals.map((item,i)=>{return item.name + '吃' + window.food[item.type]})
