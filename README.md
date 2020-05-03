@@ -1,35 +1,5 @@
-# Part3
+# Chapter1/demo-1-basic-env
+搭建React工程化开发环境
 
-## React与DOM
-
-### 虚拟DOM
-> 2018年11月09日
-
-### 虚拟DOM的概念
-
-把dom抽象为了一个javascript的对象，我们称之为虚拟dome
-
-> 虚拟 Dome 本质是一个JavaScript对象
-
-会自动同步到虚拟dom中
-
-不是直接改变dom，而是改变虚拟dom，经过计算和批处理才改变dom，这样就能提高页面性能
-
-### 为什么需要虚拟DOM？
-
-* 性能
-
->  现实：真实的dom使用消耗是十分大的。
-
->  虚拟DOM的提升：减少了实际操作dom的次数，提升了开发效率
-
-* 开发
-
->  现实：开发直接操控dom是十分不友好，难以维护
-
->  虚拟DOM的提升：不会让开发直接操作DOM，而是提供了一种可操作的方案
-> 只需要维护自己的数据，剩下的交给React
-
-### 虚拟DOM 与DOM 的性能对比
-
-
+# Chapter1/demo-2-hello-react
+开始你的 React 之旅
