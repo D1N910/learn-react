@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover" />
+		<title>React Demo</title>
+		<style>
+			#app, #dom {
+				float: left;
+			}
+		</style>
+</head>
+<body>
+    <div id="app"></div>
+    <div id="dom">
+			<h1>Real DOM</h1>
+			<button onclick="sort()">sort</button>
+      <ul></ul>
+		</div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+		<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+		<script>
+			const data = Array.from({length: 1000}).map(_ => Math.random())
+			let html = ''
+			data.forEach(_ => {
+				html += '<li>' + _ + '</li>'
+			})
+			var $ul = document.querySelector('#dom ul')
+
+			$ul.innerHTML = html
+
+			function sort() {
+        var copyData = data.concat();
+        copyData.sort();
+        /**
+          * 从开始操作实际DOM前处计时
+        */
+     	  console.time('real-dom');
+        var innerHTML = '';
+        for (var num in copyData) {
+					innerHTML += '<li>' + copyData[num] + '</li>'
+				}
+				$ul.innerHTML = innerHTML;
+         /**
+	         * 同步操作，结束计时
+         */
+        console.timeEnd('real-dom');
+      }
+		</script>
+</body>
+</html>
