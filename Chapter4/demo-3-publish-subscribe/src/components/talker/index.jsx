@@ -7,10 +7,24 @@ export default class Talker extends React.Component {
 		super(props);
 		this.state = {
 			// 本次讲的内容
-			msg: ''
+			msg: '',
+			// 聊天室内容
+			chatRecord: []
 		}
 	}
 
+	componentDidMount() {
+		global.$Events.subscribe('chatRecordUpDate', this.chatRecordUpDate.bind(this))
+	}
+
+	// 更新聊天室
+	chatRecordUpDate(e) {
+		this.setState((prevState) => ({
+			chatRecord: [...prevState.chatRecord, e]
+		}))
+	}
+
+	// 输入要聊的内容
 	handleChange(e) {
 		this.setState({
 			msg: e.target.value
@@ -21,8 +35,14 @@ export default class Talker extends React.Component {
 		// 要传递的消息
 		const msg = this.state.msg
 
-		// 发送消息
-		this.props.handleSubmit(msg, this.props.userName)
+		global.$Events.publish('chatRecordUpDate', [
+			{
+				id: this.state.chatRecord.length,
+				msg,
+				userName: this.props.userName,
+				time: new Date()
+			}
+		])
 
 		// 清空输入内容
 		this.setState({
@@ -39,7 +59,7 @@ export default class Talker extends React.Component {
 				className="chat-record"
 			>
 				{
-					this.props.chatRecord.map((i) => {
+					this.state.chatRecord.map((i) => {
 						 return <div key={i.id}>
 							{/* 发表用户 和 时间 */}
 							<div className="chat-record__title">{i.userName}({i.time.toLocaleTimeString()})</div>
