@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './index.less'
+
 const ThemeContext = React.createContext('light')
 
 export default class Main extends React.Component {
