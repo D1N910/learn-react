@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>redux-compose</title>
+</head>
+<body>
+	<script>
+		function compose(...funcs) {
+			if (funcs.length === 0) {
+				return arg => arg
+			}
+			if (funcs.length === 1) {
+				return funcs[0]
+			}
+			return funcs.reduce((a, b) => {
+				return (...args) => {
+					return a(b(...args))
+				}
+			})
+		}
+
+		function aFunc(x) {
+			return x + 'a'
+		}
+		function bFunc(x) {
+			return x + 'b'
+		}
+		function cFunc(x) {
+			return x + 'c'
+		}
+		let reduceFuncA = compose.apply(undefined, [aFunc, bFunc, cFunc])
+		let reduceFuncB = (args) => {
+			return aFunc(bFunc(cFunc(args)))
+		}
+		// 执行1
+		console.log('reduceFuncA', reduceFuncA('你好'))
+		// 执行2
+		console.log('reduceFuncB', reduceFuncB('你好'))
+	</script>
+</body>
+</html>

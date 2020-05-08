@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 不属于纯函数的三个案例
+		function getNumber() {
+			return Math.random()
+		}
+		console.log(`
+			案例一
+			function getNumber() {
+				return Math.random()
+			}
+			输入 getNumber()执行
+		`)
+
+		function getLastElement(array) {
+			return array.pop()
+		}
+		console.log(`
+			案例二
+
+			function getLastElement(array) {
+				return array.pop()
+			}
+			输入 getLastElement()执行
+		`)
+
+		function getTime() {
+			return new Date().toLocaleTimeString()
+		}
+		console.log(`
+			案例三
+			function getTime() {
+				return new Date().toLocaleTimeString()
+			}
+			输入 getLastElement()执行
+		`)
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 例子一
+		// 柯里化前
+		function addBeforeCurry(x, y) {
+			return x + y
+		}
+		console.log('addBeforeCurry(1, 2)', addBeforeCurry(1, 2))
+		// 柯里化后
+		function addAfterCurry(x) {
+			return (y) => {
+				return x + y
+			}
+		}
+		console.log('addAfterCurry(1)(2)', addAfterCurry(1)(2))
+
+		// 例子二
+		function replaceBeforeCurry(x, y) {
+			return  'I love you'.replace(x, y)
+		}
+		console.log('replaceBeforeCurry', replaceBeforeCurry('love', 'see'))
+
+		function replaceAfterCurry(x) {
+			return (y) => {
+				return 'I love you'.replace(x, y)
+			}
+		}
+
+		var replaceX = replaceAfterCurry('love')
+		var resultFun = replaceX('see')
+
+		console.log('result', resultFun)
+	</script>
+</body>
+</html>

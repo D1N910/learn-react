@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var compose = function(f,g) {
+			return function(x) {
+				return f(g(x));
+			};
+		};
+
+		// 把输入的字符专成大写
+		var toUpperCase = function(x) {
+			return x.toUpperCase();
+		}
+
+		// 在输入的字符末尾添加感叹号
+		var exclaim = function(x) {
+			return x + '!';
+		}
+
+		var compose1 = compose(exclaim, toUpperCase)
+
+		console.log(compose1('I\'m angry'))
+
+		// 函数嵌套的写法
+		var shout = function(x){
+			return exclaim(toUpperCase(x));
+		};
+
+		shout("send in the clowns");
+	</script>
+</body>
+</html>
