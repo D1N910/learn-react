@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 
 import './index.less'
 
-import TodoList from './components/todolist/_components/container'
+import TodoList from './components/todolist/index'
 
 ReactDOM.render(
 	<TodoList />,

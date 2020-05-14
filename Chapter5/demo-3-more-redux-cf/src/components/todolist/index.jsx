@@ -1,6 +1,6 @@
-import connect from '../../../utils/containerFoolConnect'
-import TodoList from '../index'
-import TodoAction from '../action'
+import connect from '../../utils/containerFoolConnect'
+import TodoList from './_components/todoList'
+import TodoAction from '../../store/action'
 
 // 数据
 function mapStateToProps(state) {

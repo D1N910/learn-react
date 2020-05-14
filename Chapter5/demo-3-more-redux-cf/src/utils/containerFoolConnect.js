@@ -1,5 +1,5 @@
 import React from 'react'
-import store from '../components/todolist/store'
+import store from '../store/store'
 
 // 高阶函数 用来封装容器组件生成傻瓜组件
 function connect(mapStateToProps, mapDispatchToProps) {

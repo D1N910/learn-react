@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './index.less'
 
@@ -47,4 +48,10 @@ export default class TodoList extends React.Component {
 			</div>
 		</div>
   }
+}
+
+TodoList.propTypes = {
+	todoList: PropTypes.array,
+	deleteTodo: PropTypes.func,
+	addTodo: PropTypes.func
 }
