@@ -1,0 +1,22 @@
+@mainStyle: rgba(0, 0, 0, 0.75);
+@hoverBgColor: rgba(0, 0, 0, 0.03);
+
+.todo-item {
+	width: 400px;
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid @mainStyle;
+	padding: 6px 32px;
+	border-radius: 16px;
+	margin: 16px auto;
+	cursor: pointer;
+	font-size: 14px;
+	height: 24px;
+	line-height: 24px;
+	&:hover {
+		background-color: @hoverBgColor;
+	}
+}
+.todo-item_done {
+	text-decoration: line-through;
+}
