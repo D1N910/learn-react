@@ -1,0 +1,32 @@
+@mainStyle: rgba(0, 0, 0, 0.75);
+@bottonMainColor: #4893FF;
+
+.todo-input-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.todo-input {
+	font-size: 18px;
+	height: 34px;
+	border: 0;
+	border-bottom: 2px solid @mainStyle;
+	outline: 0;
+	padding: 0 16px;
+}
+.todo-input-btn {
+	height: 34px;
+	border: 2px solid @bottonMainColor;
+	cursor: pointer;
+	margin-left: 16px;
+	padding: 0 24px;
+	border-radius: 34px;
+	outline: 0;
+	font-weight: bold;
+	font-size: 14px;
+	background-color: rgba(72, 147, 255, 0);
+	transition: all 0.3s;
+	&:hover {
+		background-color: rgba(72, 147, 255, 0.3);
+	}
+}
